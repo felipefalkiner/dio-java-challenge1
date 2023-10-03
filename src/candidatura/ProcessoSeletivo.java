@@ -3,18 +3,9 @@ package candidatura;
 public class ProcessoSeletivo {
     public static void main(String[] args) {
         System.out.println("Processo Seletivo!");
-        // analisarCandidato(1900);
-        // analisarCandidato(2000);
-        // analisarCandidato(2300);
-    }
-
-    static void selecaoCandidatos() {
-        String[] candidatos = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO", "MÔNICA", "FABRÍCIO", "MIRELA",
-                "DANIELA", "JORGE" };
-        
-        int candidatosSelecionados = 0;
-        while(candidatosSelecionados < 5)
-
+        analisarCandidato(1900);
+        analisarCandidato(2000);
+        analisarCandidato(2300);
     }
 
     static void analisarCandidato(double salarioPretendido) {
