@@ -8,7 +8,23 @@ public class ProcessoSeletivo {
         // analisarCandidato(1900);
         // analisarCandidato(2000);
         // analisarCandidato(2300);
-        selecaoCandidatos();
+        // selecaoCandidatos();
+        imprimirSelecionados();
+    }
+
+    static void imprimirSelecionados() {
+        String[] candidatosSelecionados = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO" };
+
+        for (int x = 0; x < candidatosSelecionados.length; x++) { // forma normal
+            System.out.println((x + 1) + "° Candidato é " + candidatosSelecionados[x]);
+        }
+
+        System.out.println("-----------");
+
+        for (String candidato : candidatosSelecionados) { // isso é um forEach
+            System.out.println(candidato);
+        }
+
     }
 
     static void selecaoCandidatos() {
