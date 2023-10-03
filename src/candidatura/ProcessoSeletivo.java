@@ -1,5 +1,6 @@
 package candidatura;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcessoSeletivo {
@@ -9,9 +10,41 @@ public class ProcessoSeletivo {
         // analisarCandidato(2000);
         // analisarCandidato(2300);
         // selecaoCandidatos();
-        imprimirSelecionados();
+        // imprimirSelecionados();
+
+        String[] candidatos = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO" };
+        for (String candidato : candidatos) {
+            entrandoEmContato(candidato);
+        }
+
     }
 
+    // case 4
+    static void entrandoEmContato(String candidato) {
+        int tentativasRealizadas = 1;
+        boolean continuarTentando = true;
+        boolean atendeu = false;
+
+        do {
+            atendeu = atender();
+            continuarTentando = !atendeu;
+
+            if (continuarTentando)
+                tentativasRealizadas++;
+            // else
+            // System.out.println("CONTATO RELAIZADO COM SUCESSO!");
+
+        } while (continuarTentando && tentativasRealizadas < 3);
+
+        if (atendeu)
+            System.out.println("CONSEGUIMOS CONTATO COM " + candidato + " NA " + tentativasRealizadas + "ª TENTIVA!");
+        else
+            System.out.println("NÃO CONSEGUIMOS CONTATO COM " + candidato + ", NÚMERO MAXIMO TENTATIVAS "
+                    + tentativasRealizadas + " REALIZADA");
+
+    }
+
+    // case 3
     static void imprimirSelecionados() {
         String[] candidatosSelecionados = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO" };
 
@@ -27,6 +60,7 @@ public class ProcessoSeletivo {
 
     }
 
+    // case 2
     static void selecaoCandidatos() {
         String[] candidatos = { "FELIPE", "MÁRCIA", "JULIA", "PAULO", "AUGUSTO", "MÔNICA", "FABRÍCIO", "MIRELA",
                 "DANIELA", "JORGE" };
@@ -58,6 +92,7 @@ public class ProcessoSeletivo {
         }
     }
 
+    // case 1
     static void analisarCandidato(double salarioPretendido) {
         double salarioBase = 2000.0;
         if (salarioBase > salarioPretendido)
@@ -70,5 +105,9 @@ public class ProcessoSeletivo {
 
     static double valorPretendido() {
         return ThreadLocalRandom.current().nextDouble(1800, 2200);
+    }
+
+    static boolean atender() {
+        return new Random().nextInt(3) == 1;
     }
 }
